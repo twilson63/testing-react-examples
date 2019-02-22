@@ -19,7 +19,7 @@ nock('https://weather.twilson63.xyz')
 afterEach(cleanup)
 
 test('get weather', async () => {
-  const { getByText, queryByText } = render(<Weather location="charleston" />)
+  const { getByText, queryByText, container } = render(<Weather location="charleston" />)
   await wait(() => expect(queryByText(/loading/i)).not.toBeInTheDocument())
   expect(getByText(/raining/)).toBeInTheDocument()
 })
